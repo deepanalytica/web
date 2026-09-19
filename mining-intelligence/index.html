@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="description" content="Deep Mining Intelligence: conceptual decision-intelligence layer for mining, designed around evidence traceability, explicit uncertainty, adversarial review, reality gates and human approval."/>
+<meta property="og:title" content="Deep Mining Intelligence — Decision Intelligence for Mining"/>
+<meta property="og:description" content="A concept for mining decisions that are traceable to evidence, explicit about uncertainty and governed by rigorous review gates."/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary"/>
+<title>Deep Mining Intelligence — Decision Intelligence for Mining</title>
+<style>
+:root{
+  --bg:#050708;--bg2:#080d10;--surface:#0a1013;--surface2:#0d1519;
+  --line:rgba(207,224,232,.12);--line2:rgba(207,224,232,.22);
+  --text:#eef4f6;--soft:#b4c0c5;--muted:#7b8a91;
+  --ice:#9fd0df;--teal:#65d2aa;--gold:#d7a653;--red:#df7068;
+  --max:1260px;--pad:max(22px,calc((100vw - var(--max))/2));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.page{min-height:100vh;background:
+  radial-gradient(circle at 72% 10%,rgba(65,112,129,.12),transparent 28%),
+  radial-gradient(circle at 14% 38%,rgba(215,166,83,.06),transparent 22%),
+  #050708}
+.nav{position:sticky;top:0;z-index:50;height:68px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 var(--pad);background:rgba(5,7,8,.84);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:11px}.mark{width:34px;height:34px;border:1px solid var(--line2);display:grid;place-items:center;font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--ice)}.brandText{display:grid;gap:2px}.brandText strong{font-size:12px;letter-spacing:.13em}.brandText span{font-size:8px;letter-spacing:.15em;color:#718087}
+.navLinks{display:flex;gap:22px}.navLinks a{font-size:8px;letter-spacing:.12em;color:#718087;text-transform:uppercase}.navLinks a:hover{color:#d9e5e9}
+.navCta{justify-self:end;display:flex;gap:8px}.navCta a{font-size:8px;letter-spacing:.09em;padding:9px 12px;border:1px solid var(--line);border-radius:999px;color:#aab7bc}.navCta a.primary{background:#dce5e8;color:#111719;border-color:#dce5e8;font-weight:700}
+.hero{min-height:calc(100vh - 68px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(520px,.95fr);gap:64px;align-items:center;padding:80px var(--pad) 70px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;left:var(--pad);right:var(--pad);bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--line2),transparent)}
+.eyebrow{font-size:8px;letter-spacing:.16em;color:#7d8b91;text-transform:uppercase}
+.hero h1{font-size:clamp(48px,6vw,88px);line-height:.93;letter-spacing:-.062em;font-weight:500;margin:14px 0 22px;max-width:900px}
+.hero h1 em{font-style:normal;color:#b8c9cf}
+.heroLead{font-size:clamp(16px,1.5vw,21px);line-height:1.48;color:#97a5ab;max-width:720px;margin:0}
+.heroLead b{color:#e6edef;font-weight:520}
+.heroActions{display:flex;gap:9px;margin-top:30px;flex-wrap:wrap}.heroActions a{padding:12px 15px;border:1px solid var(--line2);font-size:9px;letter-spacing:.08em}.heroActions a.primary{background:#dce5e8;color:#101618;border-color:#dce5e8;font-weight:700}.heroActions a:hover{transform:translateY(-1px)}
+.heroMeta{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}.heroMeta div{display:grid;gap:4px}.heroMeta span{font-size:7px;letter-spacing:.12em;color:#627178}.heroMeta strong{font-size:10px;font-weight:520}
+.archViz{position:relative;min-height:610px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(12,20,24,.78),rgba(6,10,12,.90));box-shadow:0 40px 120px rgba(0,0,0,.24);overflow:hidden}
+.archViz:before{content:"";position:absolute;inset:0;background:
+ linear-gradient(rgba(174,203,214,.04) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(174,203,214,.04) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
+.archHeader{position:absolute;left:20px;right:20px;top:18px;display:flex;justify-content:space-between;align-items:center}.archHeader span{font-size:7px;letter-spacing:.13em;color:#74838a}.status{display:flex;align-items:center;gap:7px;color:#8da59b!important}.status i{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px rgba(101,210,170,.65)}
+.pipeline{position:absolute;left:28px;right:28px;top:86px;bottom:28px;display:grid;grid-template-rows:repeat(6,1fr);gap:9px}
+.node{position:relative;border:1px solid var(--line);background:rgba(5,10,12,.72);display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:12px;padding:13px 14px;backdrop-filter:blur(10px)}
+.node:after{content:"";position:absolute;left:22px;bottom:-10px;width:1px;height:10px;background:#314047}
+.node:last-child:after{display:none}.nodeIndex{width:34px;height:34px;border:1px solid var(--line2);display:grid;place-items:center;font-size:8px;color:#84969d}.nodeCopy{display:grid;gap:4px}.nodeCopy strong{font-size:11px}.nodeCopy span{font-size:8px;color:#74848b;line-height:1.35}.nodeState{font-size:7px;padding:4px 6px;border:1px solid var(--line);color:#84949b;text-transform:uppercase;letter-spacing:.08em}.node.good .nodeState{color:#79d8b5;border-color:rgba(101,210,170,.32)}.node.warn .nodeState{color:#ddb86f;border-color:rgba(215,166,83,.35)}.node.bad .nodeState{color:#e58a83;border-color:rgba(223,112,104,.38)}
+.node.shark{border-left:2px solid #a5bac3}.node.harness{border-left:2px solid var(--gold)}.node.human{border-left:2px solid var(--teal)}
+.micro{position:absolute;right:20px;bottom:16px;font-size:6px;letter-spacing:.12em;color:#48575e}
+.section{padding:110px var(--pad);border-bottom:1px solid var(--line);position:relative}
+.sectionHead{max-width:900px;margin-bottom:54px}.sectionHead h2{font-size:clamp(38px,4.5vw,66px);line-height:1;letter-spacing:-.05em;font-weight:500;margin:12px 0 18px}.sectionHead p{font-size:15px;line-height:1.65;color:#89989f;max-width:760px;margin:0}.sectionHead p b{color:#dce6e9;font-weight:540}
+.principles{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.principle{min-height:215px;padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.015),transparent)}.principle span{font-size:7px;letter-spacing:.14em;color:#66767d}.principle h3{font-size:19px;line-height:1.08;letter-spacing:-.025em;margin:22px 0 10px}.principle p{font-size:10px;line-height:1.55;color:#73838a;margin:0}.principle strong{display:block;margin-top:16px;font-size:9px;color:#bfcbd0;font-weight:550}
+.gates{display:grid;grid-template-columns:1fr 1fr;gap:14px}.gate{min-height:230px;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.012);position:relative;overflow:hidden}.gate:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#62757d}.gate.reality:before{background:var(--ice)}.gate.shark:before{background:#a4bbc4}.gate.harness:before{background:var(--gold)}.gate.human:before{background:var(--teal)}.gate .gateTop{display:flex;justify-content:space-between;align-items:center}.gate .gateTop span{font-size:7px;letter-spacing:.13em;color:#66767d}.gate .gateTop b{font-size:7px;font-weight:500;padding:4px 6px;border:1px solid var(--line)}.gate h3{font-size:25px;letter-spacing:-.035em;margin:28px 0 10px}.gate p{font-size:10px;line-height:1.6;color:#76868d;max-width:520px}.gate ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:7px}.gate li{font-size:9px;color:#a2afb4}.gate li:before{content:"—";margin-right:8px;color:#55656c}
+.flowGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.decisionMap{border:1px solid var(--line);min-height:520px;background:linear-gradient(180deg,#0a1115,#071014);position:relative;overflow:hidden;padding:22px}.decisionMap:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 34% 34%,rgba(215,166,83,.10),transparent 22%),radial-gradient(circle at 68% 58%,rgba(121,193,215,.10),transparent 20%)}.decisionMap svg{position:absolute;inset:0;width:100%;height:100%}.decisionCaption{position:relative;z-index:2;display:flex;justify-content:space-between}.decisionCaption span{font-size:7px;letter-spacing:.13em;color:#68777e}.decisionCaption b{font-size:9px}.decisionLegend{position:absolute;left:22px;bottom:18px;z-index:2;display:flex;gap:12px}.decisionLegend span{font-size:7px;color:#63747b}.decisionLegend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}.decisionLegend .fact i{background:var(--teal)}.decisionLegend .infer i{background:var(--gold)}.decisionLegend .block i{background:var(--red)}
+.decisionAside{display:grid;gap:12px}.decisionAside article{border:1px solid var(--line);padding:18px;background:rgba(255,255,255,.01)}.decisionAside span{font-size:7px;letter-spacing:.12em;color:#68777e}.decisionAside h3{font-size:18px;margin:10px 0 8px;letter-spacing:-.025em}.decisionAside p{font-size:9px;line-height:1.55;color:#76868d;margin:0}.decisionAside .big{font-size:34px;letter-spacing:-.05em;font-weight:520}.decisionAside .hold{color:var(--gold)}
+.compare{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.compareCol{padding:26px;min-height:430px}.compareCol:first-child{border-right:1px solid var(--line);background:rgba(223,112,104,.025)}.compareCol:last-child{background:rgba(101,210,170,.018)}.compareCol>span{font-size:7px;letter-spacing:.13em;color:#65747b}.compareCol h3{font-size:28px;letter-spacing:-.035em;margin:14px 0 22px}.compareList{display:grid;gap:0;border-top:1px solid var(--line)}.compareItem{padding:13px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:28px 1fr;gap:10px}.compareItem b{font-size:8px;color:#65747b}.compareItem div{display:grid;gap:3px}.compareItem strong{font-size:10px}.compareItem span{font-size:8px;line-height:1.45;color:#75858c}
+.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stack article{min-height:260px;border:1px solid var(--line);padding:20px;background:linear-gradient(180deg,rgba(255,255,255,.016),rgba(255,255,255,.005));position:relative}.stack article span{font-size:7px;letter-spacing:.13em;color:#627178}.stack article h3{font-size:19px;letter-spacing:-.025em;margin:22px 0 10px}.stack article p{font-size:9px;line-height:1.55;color:#74848b}.stack article b{position:absolute;left:20px;bottom:18px;font-size:8px;font-weight:500;color:#aebbc0}
+.revisability{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:start}.revisionCard{border:1px solid var(--line);background:#091014;padding:20px}.revisionHeader{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line)}.revisionHeader span{font-size:7px;color:#68777e;letter-spacing:.12em}.revisionHeader b{font-size:7px;color:#8fd9bd}.claim{padding:20px 0;border-bottom:1px solid var(--line)}.claim:last-child{border-bottom:0}.claimTop{display:flex;justify-content:space-between;gap:12px}.claimTop strong{font-size:11px}.claimTop span{font-size:7px;padding:4px 6px;border:1px solid var(--line);color:#89999f}.claim p{font-size:9px;line-height:1.55;color:#75858b;margin:8px 0}.claimMeta{display:flex;gap:12px;flex-wrap:wrap}.claimMeta small{font-size:7px;color:#607078}.revisionCopy h2{font-size:clamp(38px,4.2vw,62px);letter-spacing:-.05em;line-height:1;margin:12px 0 18px;font-weight:500}.revisionCopy p{font-size:14px;line-height:1.7;color:#87969d}.revisionCopy ul{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:10px}.revisionCopy li{font-size:10px;color:#a5b2b7;border-top:1px solid var(--line);padding-top:10px}
+.cta{padding:120px var(--pad);text-align:center;position:relative}.cta:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(122,187,209,.08),transparent 34%)}.ctaInner{position:relative;max-width:900px;margin:auto}.cta h2{font-size:clamp(48px,6vw,82px);line-height:.95;letter-spacing:-.06em;font-weight:500;margin:12px 0 22px}.cta p{font-size:15px;line-height:1.65;color:#8b9aa0;max-width:700px;margin:0 auto}.ctaActions{display:flex;justify-content:center;gap:9px;margin-top:30px;flex-wrap:wrap}.ctaActions a{padding:13px 17px;border:1px solid var(--line2);font-size:9px;letter-spacing:.08em}.ctaActions .primary{background:#dce5e8;color:#101618;border-color:#dce5e8;font-weight:700}
+.disclaimer{padding:18px var(--pad) 24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.disclaimer span{font-size:7px;line-height:1.5;color:#55656c;max-width:680px}.disclaimer b{font-size:7px;color:#718087;font-weight:500}
+.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:1050px){
+ .hero{grid-template-columns:1fr;gap:50px}.archViz{min-height:560px}.principles,.stack{grid-template-columns:1fr 1fr}.flowGrid,.revisability{grid-template-columns:1fr}.metrics{display:none}
+}
+@media(max-width:760px){
+ .nav{grid-template-columns:1fr auto;height:60px;padding:0 14px}.navLinks{display:none}.navCta a:first-child{display:none}.hero{padding:60px 18px 48px}.hero h1{font-size:52px}.archViz{min-height:600px}.pipeline{left:14px;right:14px}.node{grid-template-columns:34px 1fr}.nodeState{display:none}.section{padding:80px 18px}.principles,.gates,.stack,.compare{grid-template-columns:1fr}.compareCol:first-child{border-right:0;border-bottom:1px solid var(--line)}.decisionMap{min-height:430px}.revisionCopy h2{font-size:44px}.cta{padding:90px 18px}.cta h2{font-size:54px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="nav">
+  <a class="brand" href="#">
+    <div class="mark">DA</div>
+    <div class="brandText"><strong>DEEP ANALYTICA</strong><span>MINING INTELLIGENCE</span></div>
+  </a>
+  <nav class="navLinks">
+    <a href="#system">Sistema</a><a href="#gates">Gates</a><a href="#decision">Decisión</a><a href="#architecture">Arquitectura</a>
+  </nav>
+  <div class="navCta"><a href="#system">Entender la capa</a><a class="primary" href="./terminal.html">Abrir terminal</a></div>
+</header>
+
+<section class="hero">
+  <div class="reveal">
+    <span class="eyebrow">Decision intelligence for mining · concept preview</span>
+    <h1>La IA puede proponer.<br/><em>No puede saltarse la realidad.</em></h1>
+    <p class="heroLead">
+      Una capa de inteligencia para decisiones mineras donde <b>cada afirmación debe declarar qué sabe, de dónde lo sabe, cuánto no sabe y qué evidencia la sostiene</b> antes de influir sobre capital, operación o exploración.
+    </p>
+    <div class="heroActions">
+      <a class="primary" href="./terminal.html">Explorar terminal interactiva →</a>
+      <a href="#gates">Ver cómo se controla una afirmación</a>
+    </div>
+    <div class="heroMeta">
+      <div><span>REALIDAD</span><strong>Deep Geo</strong></div>
+      <div><span>ORQUESTACIÓN</span><strong>Praxios OS</strong></div>
+      <div><span>REVISIÓN ADVERSARIAL</span><strong>Tiburón</strong></div>
+      <div><span>CONTROL</span><strong>Meta-Harness</strong></div>
+    </div>
+  </div>
+
+  <div class="archViz reveal">
+    <div class="archHeader"><span>DECISION PATH / ACTIVE</span><span class="status"><i></i> human-governed</span></div>
+    <div class="pipeline">
+      <div class="node good"><span class="nodeIndex">01</span><div class="nodeCopy"><strong>Realidad observada</strong><span>Terreno, operación, satélite, modelos, documentos y series.</span></div><span class="nodeState">trazable</span></div>
+      <div class="node warn"><span class="nodeIndex">02</span><div class="nodeCopy"><strong>Claim epistemológico</strong><span>Hecho, inferencia, hipótesis, forecast, escenario o recomendación.</span></div><span class="nodeState">clasificado</span></div>
+      <div class="node shark warn"><span class="nodeIndex">03</span><div class="nodeCopy"><strong>Tiburón · revisión adversarial</strong><span>Busca contradicciones, saltos de certeza, supuestos ocultos y evidencia ausente.</span></div><span class="nodeState">ataca</span></div>
+      <div class="node harness bad"><span class="nodeIndex">04</span><div class="nodeCopy"><strong>Meta-Harness · gates</strong><span>Decide qué puede avanzar, qué queda condicionado y qué debe bloquearse.</span></div><span class="nodeState">hold</span></div>
+      <div class="node warn"><span class="nodeIndex">05</span><div class="nodeCopy"><strong>Revisabilidad</strong><span>Versión, fuente, incertidumbre, reemplazos y razón de cambio permanecen visibles.</span></div><span class="nodeState">auditable</span></div>
+      <div class="node human good"><span class="nodeIndex">06</span><div class="nodeCopy"><strong>Human Key</strong><span>La arquitectura no sustituye la decisión humana en acciones de alto impacto.</span></div><span class="nodeState">required</span></div>
+    </div>
+    <span class="micro">CONCEPT ARCHITECTURE · V0.3</span>
+  </div>
+</section>
+
+<section class="section" id="system">
+  <div class="sectionHead reveal">
+    <span class="eyebrow">No es otro dashboard minero</span>
+    <h2>Es una disciplina operacional para decidir bajo incertidumbre.</h2>
+    <p>
+      El problema no es que falten datos o modelos. El problema es que una salida plausible puede <b>parecer más cierta de lo que realmente es</b>. La capa separa observación, interpretación, forecast y decisión para que nunca se mezclen silenciosamente.
+    </p>
+  </div>
+
+  <div class="principles reveal">
+    <article class="principle"><span>01 / PROVENANCE</span><h3>Toda afirmación debe poder volver a su fuente.</h3><p>Fuente, evidencia, método, timestamp, versión y revisor permanecen ligados al claim.</p><strong>Source → Evidence → Claim</strong></article>
+    <article class="principle"><span>02 / UNCERTAINTY</span><h3>La incertidumbre no se esconde.</h3><p>Lo inferido no se presenta como observado. Un forecast nunca se muestra como hecho.</p><strong>Fact ≠ inference ≠ forecast</strong></article>
+    <article class="principle"><span>03 / REVERSIBILITY</span><h3>La calidad de una decisión incluye poder revisarla.</h3><p>Cuando cambia la evidencia, el sistema conserva qué cambió, por qué y qué decisión queda afectada.</p><strong>Versioned & revisable</strong></article>
+    <article class="principle"><span>04 / HUMAN KEY</span><h3>La IA no obtiene autoridad por sonar segura.</h3><p>En decisiones de alto impacto, la acción requiere una aprobación humana explícita.</p><strong>impact = high ⇒ human</strong></article>
+  </div>
+</section>
+
+<section class="section" id="gates">
+  <div class="sectionHead reveal">
+    <span class="eyebrow">Gates de realidad y revisabilidad</span>
+    <h2>Nada cruza por plausibilidad.</h2>
+    <p>
+      Una recomendación puede ser convincente y estar equivocada. Por eso cada transición exige condiciones explícitas. El sistema está diseñado para <b>reducir saltos de certeza</b>, no para producir respuestas más persuasivas.
+    </p>
+  </div>
+
+  <div class="gates reveal">
+    <article class="gate reality"><div class="gateTop"><span>GATE 01</span><b>REALITY</b></div><h3>¿Existe evidencia observable?</h3><p>Antes de afirmar, el sistema pregunta si existe una base verificable y si la fuente tiene el alcance suficiente para sostener el claim.</p><ul><li>fuente identificada</li><li>evidencia enlazada</li><li>vigencia y cobertura conocidas</li></ul></article>
+    <article class="gate shark"><div class="gateTop"><span>GATE 02</span><b>TIBURÓN</b></div><h3>¿Cómo romperíamos este razonamiento?</h3><p>El revisor adversarial intenta encontrar lo que la primera pasada no quiso ver: contradicciones, dependencia circular, supuestos implícitos y exceso de confianza.</p><ul><li>contraevidencia</li><li>supuestos ocultos</li><li>alternativas explicativas</li></ul></article>
+    <article class="gate harness"><div class="gateTop"><span>GATE 03</span><b>META-HARNESS</b></div><h3>¿Tiene permiso epistemológico para avanzar?</h3><p>Reglas deterministas controlan la transición. Un hecho sin evidencia bloquea. Un forecast sin baseline pierde peso. Un claim público exige revisión competente.</p><ul><li>PASS / CONDITIONAL / HOLD</li><li>reglas reproducibles</li><li>hallazgos auditables</li></ul></article>
+    <article class="gate human"><div class="gateTop"><span>GATE 04</span><b>HUMAN KEY</b></div><h3>¿Debe una persona autorizar la acción?</h3><p>El objetivo es aumentar la calidad de la decisión humana, no desplazar responsabilidad en decisiones de capital, operación o seguridad.</p><ul><li>impacto declarado</li><li>alternativas visibles</li><li>aprobación explícita</li></ul></article>
+  </div>
+</section>
+
+<section class="section" id="decision">
+  <div class="sectionHead reveal">
+    <span class="eyebrow">Un ejemplo de cómo se ve una decisión</span>
+    <h2>Una decisión no es un número. Es un grafo de evidencia, riesgo y opciones.</h2>
+    <p>
+      La interfaz no sólo muestra “qué hacer”. Permite recorrer <b>por qué podría hacerse, qué podría invalidarlo y qué alternativa conserva más opcionalidad</b>.
+    </p>
+  </div>
+
+  <div class="flowGrid reveal">
+    <div class="decisionMap">
+      <div class="decisionCaption"><span>DECISION GRAPH / CONCEPT</span><b>Expandir Operación Los Andes</b></div>
+      <svg viewBox="0 0 900 520" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <filter id="g"><feGaussianBlur stdDeviation="5"/></filter>
+        </defs>
+        <g stroke="rgba(174,205,216,.18)" stroke-width="1.2" fill="none">
+          <path d="M110 120 C260 100 250 220 390 230"/>
+          <path d="M110 260 C250 270 250 230 390 230"/>
+          <path d="M110 390 C270 390 250 260 390 230"/>
+          <path d="M390 230 C520 230 545 130 680 120"/>
+          <path d="M390 230 C520 230 550 250 680 260"/>
+          <path d="M390 230 C530 230 540 380 680 390"/>
+          <path d="M680 120 C780 150 770 245 830 260"/>
+          <path d="M680 260 C770 260 780 260 830 260"/>
+          <path d="M680 390 C780 370 770 275 830 260"/>
+        </g>
+        <g font-family="Inter,system-ui" text-anchor="middle">
+          <circle cx="110" cy="120" r="34" fill="rgba(101,210,170,.12)" stroke="rgba(101,210,170,.55)"/><text x="110" y="116" fill="#d8e7e4" font-size="11">Producción</text><text x="110" y="132" fill="#789087" font-size="8">observado</text>
+          <circle cx="110" cy="260" r="34" fill="rgba(215,166,83,.10)" stroke="rgba(215,166,83,.50)"/><text x="110" y="256" fill="#e8dcc4" font-size="11">Agua</text><text x="110" y="272" fill="#94856a" font-size="8">condicional</text>
+          <circle cx="110" cy="390" r="34" fill="rgba(223,112,104,.10)" stroke="rgba(223,112,104,.50)"/><text x="110" y="386" fill="#ead2cf" font-size="11">Geotecnia</text><text x="110" y="402" fill="#93736f" font-size="8">bloqueo</text>
+          <circle cx="390" cy="230" r="46" fill="rgba(159,208,223,.09)" stroke="rgba(159,208,223,.50)"/><text x="390" y="225" fill="#dce9ed" font-size="12">Decision</text><text x="390" y="242" fill="#82979f" font-size="8">3 alternativas</text>
+          <circle cx="680" cy="120" r="40" fill="rgba(159,208,223,.07)" stroke="rgba(159,208,223,.34)"/><text x="680" y="116" fill="#d7e5e9" font-size="10">Expandir</text><text x="680" y="132" fill="#789099" font-size="8">CAPEX alto</text>
+          <circle cx="680" cy="260" r="40" fill="rgba(215,166,83,.08)" stroke="rgba(215,166,83,.38)"/><text x="680" y="256" fill="#e8dcc4" font-size="10">Validar</text><text x="680" y="272" fill="#927f5e" font-size="8">compra información</text>
+          <circle cx="680" cy="390" r="40" fill="rgba(159,208,223,.05)" stroke="rgba(159,208,223,.26)"/><text x="680" y="386" fill="#d4e0e4" font-size="10">Liquidez</text><text x="680" y="402" fill="#718188" font-size="8">máxima reversibilidad</text>
+          <circle cx="830" cy="260" r="42" fill="rgba(101,210,170,.10)" stroke="rgba(101,210,170,.45)"/><text x="830" y="254" fill="#dce9e4" font-size="10">Humano</text><text x="830" y="270" fill="#789087" font-size="8">firma requerida</text>
+        </g>
+      </svg>
+      <div class="decisionLegend"><span class="fact"><i></i>observado</span><span class="infer"><i></i>condicionado</span><span class="block"><i></i>bloqueo</span></div>
+    </div>
+
+    <div class="decisionAside">
+      <article><span>GATE ACTUAL</span><h3 class="big hold">HOLD</h3><p>La recomendación no avanza mientras agua y geotecnia no alcancen el nivel de soporte requerido.</p></article>
+      <article><span>ALTERNATIVA REVERSIBLE</span><h3>Comprar información antes que CAPEX.</h3><p>Validar Target Norte puede reducir incertidumbre antes de comprometer capital irreversible.</p></article>
+      <article><span>REGLA</span><h3>Forecast que no supera baseline pierde peso decisional.</h3><p>La arquitectura no premia complejidad del modelo; premia evidencia de que agrega valor.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="sectionHead reveal">
+    <span class="eyebrow">La diferencia importa</span>
+    <h2>No buscamos una IA que “suene experta”.</h2>
+    <p>Buscamos una arquitectura donde las capacidades de IA queden subordinadas a reglas de evidencia, revisión y responsabilidad.</p>
+  </div>
+  <div class="compare reveal">
+    <div class="compareCol">
+      <span>LLM / AGENTE SIN DISCIPLINA</span>
+      <h3>Respuesta plausible</h3>
+      <div class="compareList">
+        <div class="compareItem"><b>01</b><div><strong>Conclusión primero</strong><span>El lenguaje convincente puede ocultar una cadena de soporte débil.</span></div></div>
+        <div class="compareItem"><b>02</b><div><strong>Fuentes desacopladas</strong><span>Las referencias existen, pero no necesariamente sostienen exactamente el claim.</span></div></div>
+        <div class="compareItem"><b>03</b><div><strong>Incertidumbre comprimida</strong><span>Lo probable, inferido y observado termina narrado con el mismo tono.</span></div></div>
+        <div class="compareItem"><b>04</b><div><strong>Difícil de revisar</strong><span>Cuando aparece nueva evidencia, no siempre es evidente qué razonamiento queda invalidado.</span></div></div>
+      </div>
+    </div>
+    <div class="compareCol">
+      <span>DEEP MINING INTELLIGENCE</span>
+      <h3>Decision path trazable</h3>
+      <div class="compareList">
+        <div class="compareItem"><b>01</b><div><strong>Claim clasificado</strong><span>Hecho, inferencia, hipótesis, forecast, escenario y recomendación se mantienen distintos.</span></div></div>
+        <div class="compareItem"><b>02</b><div><strong>Evidence graph</strong><span>La cadena fuente → evidencia → claim → riesgo → decisión permanece navegable.</span></div></div>
+        <div class="compareItem"><b>03</b><div><strong>Tiburón + Meta-Harness</strong><span>La revisión adversarial intenta romper el razonamiento antes de que los gates lo permitan avanzar.</span></div></div>
+        <div class="compareItem"><b>04</b><div><strong>Revisabilidad por diseño</strong><span>Nueva evidencia puede reemplazar claims sin borrar el historial que llevó a la decisión anterior.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="architecture">
+  <div class="sectionHead reveal">
+    <span class="eyebrow">Arquitectura conceptual</span>
+    <h2>Cuatro capas. Una sola superficie de decisión.</h2>
+    <p>La experiencia visual es sólo la capa superior. Debajo existe una separación explícita entre realidad, orquestación, control y responsabilidad humana.</p>
+  </div>
+  <div class="stack reveal">
+    <article><span>LAYER 01</span><h3>Deep Geo</h3><p>Estado del mundo: territorio, satélite, infraestructura, operación, riesgos, cambio temporal y contexto espacial.</p><b>REALITY / WORLD STATE</b></article>
+    <article><span>LAYER 02</span><h3>Praxios OS</h3><p>Orquesta contexto, herramientas, agentes, evidencia, escenarios, acciones y revisiones de manera repetible.</p><b>ORCHESTRATION</b></article>
+    <article><span>LAYER 03</span><h3>Tiburón + Meta-Harness</h3><p>Revisión adversarial, invariantes, gates, trazabilidad, clasificación epistemológica y bloqueo de transiciones no permitidas.</p><b>TRUST / CONTROL</b></article>
+    <article><span>LAYER 04</span><h3>Human Key</h3><p>La autoridad final sobre decisiones materiales permanece en personas con el contexto y responsabilidad adecuados.</p><b>GOVERNANCE</b></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="revisability reveal">
+    <div class="revisionCard">
+      <div class="revisionHeader"><span>CLAIM HISTORY / EVOLUTION</span><b>revisable</b></div>
+      <div class="claim">
+        <div class="claimTop"><strong>“Target Norte presenta continuidad en profundidad.”</strong><span>HYPOTHESIS</span></div>
+        <p>Interpretación inicial basada en anomalías y geometría parcial. No se presenta como hecho.</p>
+        <div class="claimMeta"><small>v1 · 2026-09-12</small><small>EV-03 + EV-07</small><small>uncertainty: high</small></div>
+      </div>
+      <div class="claim">
+        <div class="claimTop"><strong>“La continuidad sigue siendo plausible, pero no está confirmada.”</strong><span>REVISED</span></div>
+        <p>Nueva información reduce una interpretación alternativa, pero no cierra profundidad ni geometría.</p>
+        <div class="claimMeta"><small>v2 · 2026-09-18</small><small>supersedes v1</small><small>uncertainty: moderate</small></div>
+      </div>
+      <div class="claim">
+        <div class="claimTop"><strong>Próximo paso: adquirir evidencia discriminante.</strong><span>ACTION</span></div>
+        <p>La recomendación cambia desde “expandir” a “comprar información” porque la incertidumbre es material para el capital comprometido.</p>
+        <div class="claimMeta"><small>Gate: conditional</small><small>Human review required</small></div>
+      </div>
+    </div>
+    <div class="revisionCopy">
+      <span class="eyebrow">Revisabilidad</span>
+      <h2>Un sistema serio debe poder cambiar de opinión sin borrar su historia.</h2>
+      <p>
+        Trazabilidad no significa sólo “tener fuentes”. Significa poder reconstruir qué evidencia existía, qué versión del modelo se usó, qué reglas estaban activas y por qué una decisión fue razonable en ese momento.
+      </p>
+      <ul>
+        <li>Claims versionados y relaciones <em>supersedes / invalidates / supports</em>.</li>
+        <li>Incertidumbre explícita y preservada en el historial.</li>
+        <li>Auditoría del gate que permitió o bloqueó el avance.</li>
+        <li>Capacidad de reabrir decisiones cuando cambia evidencia material.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="ctaInner reveal">
+    <span class="eyebrow">Interactive concept</span>
+    <h2>Ahora entra a la decisión.</h2>
+    <p>
+      La terminal demuestra cómo territorio, tiempo, evidencia, escenarios y gates pueden convivir en una única experiencia operacional. Los datos mostrados son conceptuales; la arquitectura y la lógica de control son el foco de esta etapa.
+    </p>
+    <div class="ctaActions"><a class="primary" href="./terminal.html">Abrir Deep Mining Intelligence →</a><a href="#gates">Revisar gates</a></div>
+  </div>
+</section>
+
+<footer class="disclaimer">
+  <span>CONCEPT PREVIEW. Las cifras, geometrías y escenarios mostrados son ilustrativos y no constituyen recursos, reservas, valorizaciones, recomendaciones de inversión ni información técnica declarada de un proyecto real.</span>
+  <b>DEEP ANALYTICA · 2026 · PROSPECTIVE PARTNER PREVIEW</b>
+</footer>
+</div>
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+setTimeout(()=>document.querySelectorAll('.hero .reveal').forEach(el=>el.classList.add('visible')),100);
+</script>
+<!-- public partner preview build 2026-09-18 -->
+</body>
+</html>
