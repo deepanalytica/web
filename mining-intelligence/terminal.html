@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="description" content="Concept preview of Deep Mining Intelligence: immersive geospatial decision intelligence, evidence traceability, uncertainty and human-governed decision architecture."/>
+<meta property="og:title" content="Deep Mining Intelligence — Concept Preview"/>
+<meta property="og:description" content="A serious concept for immersive mining decision intelligence: Deep Geo + Praxios + Meta-Harness."/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary"/>
+<title>Deep Mining Intelligence — Decision Terminal</title>
+<style>
+:root{
+  --bg:#050709;--bg2:#080d10;--glass:rgba(8,13,16,.76);--glass2:rgba(8,13,16,.92);
+  --line:rgba(205,224,232,.12);--line2:rgba(205,224,232,.22);
+  --text:#eef4f6;--muted:#7f8f96;--soft:#a8b5bb;--cyan:#8bc9dc;--teal:#5bd2aa;
+  --gold:#d7a653;--red:#de6e65;--shadow:0 22px 70px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{overflow:hidden}
+button{font:inherit}
+.app{height:100%;display:grid;grid-template-columns:68px 1fr;grid-template-rows:62px 1fr;background:radial-gradient(circle at 60% 35%,#101b21 0,#071014 32%,#050709 70%)}
+.topbar{grid-column:1/-1;display:grid;grid-template-columns:270px 1fr auto;align-items:center;padding:0 16px;border-bottom:1px solid var(--line);background:rgba(5,8,10,.95);backdrop-filter:blur(18px);z-index:50}
+.brand{display:flex;align-items:center;gap:11px}.logo{width:33px;height:33px;border:1px solid var(--line2);display:grid;place-items:center;font-size:10px;font-weight:900;letter-spacing:.1em;color:var(--cyan)}.brandText{display:grid;gap:2px}.brandText b{font-size:12px;letter-spacing:.13em}.brandText span{font-size:8px;letter-spacing:.14em;color:#78878e}
+.project{justify-self:center;display:flex;align-items:baseline;gap:10px}.project span,.project small{font-size:8px;letter-spacing:.11em;color:#66767d}.project b{font-size:12px;letter-spacing:.08em}
+.topRight{display:flex;align-items:center;gap:9px}.live{display:flex;align-items:center;gap:7px;font-size:8px;letter-spacing:.11em;color:#8aa498}.live i{width:6px;height:6px;background:var(--teal);border-radius:50%;box-shadow:0 0 12px rgba(91,210,170,.75)}.topRight button{border:1px solid var(--line);background:transparent;color:#87969d;border-radius:999px;padding:7px 10px;font-size:8px;cursor:pointer}
+.rail{grid-row:2;display:flex;flex-direction:column;border-right:1px solid var(--line);background:#060a0c;z-index:30}.rail button{height:61px;border:0;border-left:2px solid transparent;background:transparent;color:#627078;display:grid;place-items:center;align-content:center;gap:4px;cursor:pointer}.rail button b{font-size:9px;letter-spacing:.09em}.rail button span{font-size:7px;letter-spacing:.06em}.rail button.active{background:#0b1114;color:#e4ecef;border-left-color:var(--gold)}.rail .spacer{flex:1}.rail .trust{border-top:1px solid var(--line);color:#ccb078}.rail .trust b{font-size:13px}
+.stage{grid-column:2;grid-row:2;position:relative;overflow:hidden;min-width:0;min-height:0}
+#scene{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}.stage.dragging #scene{cursor:grabbing}
+.vignette{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,7,9,.20),transparent 26%,transparent 70%,rgba(5,7,9,.22));mix-blend-mode:multiply}
+.ribbon{position:absolute;left:20px;right:20px;top:16px;z-index:20;height:56px;display:grid;grid-template-columns:minmax(330px,1.8fr) .6fr .45fr .5fr auto;background:rgba(5,8,10,.74);border:1px solid var(--line);backdrop-filter:blur(18px);box-shadow:var(--shadow)}.ribbon>div{padding:9px 12px;border-right:1px solid var(--line);display:grid;align-content:center;gap:3px}.ribbon span{font-size:7px;letter-spacing:.13em;color:#718188}.ribbon strong{font-size:11px;font-weight:600}.ribbon .main strong{font-size:13px}.ribbon .hold{color:var(--gold);letter-spacing:.12em}.ribbon button{border:0;border-left:1px solid var(--line);background:transparent;color:#c0cbd0;padding:0 14px;font-size:8px;cursor:pointer}
+.viewMode{position:absolute;left:50%;top:88px;transform:translateX(-50%);z-index:23;padding:3px;display:flex;background:rgba(4,8,10,.62);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(16px)}.viewMode button{border:0;background:transparent;color:#6c7b82;border-radius:999px;padding:7px 12px;font-size:7px;letter-spacing:.11em;cursor:pointer}.viewMode button.active{background:rgba(215,166,83,.12);color:#e5ca95}
+.layerDock{position:absolute;left:20px;top:88px;z-index:22;display:flex;gap:3px;padding:3px;background:rgba(4,8,10,.58);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(16px)}.layerDock button{border:0;background:transparent;color:#6f7f86;border-radius:999px;padding:7px 10px;font-size:7px;cursor:pointer}.layerDock button.active{background:rgba(139,201,220,.12);color:#d9eef5}
+.sceneLabel{position:absolute;left:30px;top:43%;z-index:21;width:245px;padding:13px 14px;border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(6,10,12,.84),rgba(6,10,12,.40));backdrop-filter:blur(12px)}.sceneLabel>span{font-size:7px;letter-spacing:.14em;color:#8c7a59}.sceneLabel>strong{display:block;font-size:17px;letter-spacing:-.02em;margin:5px 0 7px}.sceneLabel .tags{display:flex;gap:5px;flex-wrap:wrap}.sceneLabel .tags b{font-size:7px;font-weight:500;padding:4px 6px;border:1px solid var(--line);color:#aab6bc}.sceneLabel p{font-size:8px;line-height:1.45;color:#78868c;margin:8px 0 0}
+.metrics{position:absolute;right:380px;top:88px;z-index:20;display:flex;background:rgba(5,9,11,.56);border:1px solid var(--line);backdrop-filter:blur(14px)}.metrics div{padding:8px 10px;border-right:1px solid var(--line);display:grid;gap:3px}.metrics div:last-child{border-right:0}.metrics span{font-size:6px;letter-spacing:.1em;color:#6c7a80}.metrics strong{font-size:9px}
+.inspector{position:absolute;right:20px;top:88px;bottom:168px;width:342px;z-index:26;background:rgba(6,10,12,.86);border:1px solid var(--line);backdrop-filter:blur(22px);display:grid;grid-template-rows:42px 1fr;box-shadow:-30px 0 80px rgba(0,0,0,.12)}.tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}.tabs button{border:0;border-bottom:1px solid transparent;background:transparent;color:#68777e;font-size:8px;letter-spacing:.07em;cursor:pointer}.tabs button.active{color:#e2eaed;border-bottom-color:#b8c9d0}.panel{display:none;overflow:auto;padding:18px}.panel.active{display:block}.eyebrow{font-size:7px;letter-spacing:.14em;color:#75848b}.panel h2{font-size:26px;line-height:1.02;letter-spacing:-.045em;margin:7px 0 9px;font-weight:520}.lead{font-size:10px;line-height:1.55;color:#7c8a90;margin:0 0 20px}.metricLine{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.metricLine div{padding:12px 8px;border-right:1px solid var(--line);display:grid;gap:4px}.metricLine div:last-child{border-right:0}.metricLine span{font-size:7px;color:#6d7a80}.metricLine strong{font-size:11px}.tradeoffs{padding:14px 0;display:grid;gap:9px;border-bottom:1px solid var(--line)}.tradeoffs div{display:flex;justify-content:space-between;gap:14px}.tradeoffs span{font-size:7px;color:#6d7a80}.tradeoffs b{font-size:9px}.blocker{margin-top:16px;padding:13px 14px;border-left:2px solid var(--gold);background:rgba(215,166,83,.06)}.blocker strong{display:block;font-size:11px;margin:5px 0}.blocker p{font-size:9px;line-height:1.5;color:#867d6b;margin:0}.actions{display:grid;gap:7px;margin-top:16px}.actions button{min-height:38px;border:1px solid var(--line);background:transparent;color:#aebbc0;font-size:8px;cursor:pointer}.actions .primary{background:#dbe2e5;color:#0f1517;border-color:#dbe2e5;font-weight:650}
+.evidence{display:grid;border-top:1px solid var(--line)}.evidence button{min-height:54px;display:grid;grid-template-columns:10px 1fr auto;align-items:center;gap:10px;border:0;border-bottom:1px solid var(--line);background:transparent;color:inherit;text-align:left;padding:8px 0;cursor:pointer}.dot{width:6px;height:6px;border-radius:50%}.dot.good{background:var(--teal)}.dot.warn{background:var(--gold)}.dot.bad{background:var(--red)}.evidence button div{display:grid;gap:3px}.evidence strong{font-size:9px}.evidence span,.evidence small{font-size:7px;color:#708087}.trace{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}.traceFlow{display:flex;align-items:center;gap:7px;margin:9px 0}.traceFlow b{font-size:8px}.traceFlow i{color:#58666c;font-style:normal}.trace p,.systemCard p{font-size:8px;line-height:1.5;color:#6f7e84}
+.systemStack{display:grid;border-top:1px solid var(--line)}.systemLayer{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.systemLayer>span{font-size:7px;color:#617279}.systemLayer strong{font-size:10px}.systemLayer p{font-size:8px;line-height:1.45;color:#707f86;margin:4px 0 0}.systemCard{margin-top:16px;padding:13px 14px;border:1px solid var(--line);background:rgba(255,255,255,.015)}.systemCard strong{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;margin:7px 0}.rust strong{font-family:inherit}
+.timeline{position:absolute;left:30px;right:380px;bottom:111px;z-index:22;padding:9px 12px 8px;background:rgba(4,8,10,.58);border:1px solid var(--line);backdrop-filter:blur(16px)}.timelineTop{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin-bottom:7px}.timelineTop span{font-size:7px;letter-spacing:.12em;color:#66757c}.timelineTop span:nth-child(2){text-align:center;color:#e6edef}.timelineTop span:last-child{text-align:right;color:#85734f}.track{height:20px;position:relative}.track:before{content:"";position:absolute;left:0;right:50%;top:9px;height:1px;background:#7b898f}.track:after{content:"";position:absolute;left:50%;right:0;top:9px;border-top:1px dashed #8b754d}.now{position:absolute;left:50%;top:3px;width:1px;height:14px;background:var(--gold);box-shadow:0 0 10px rgba(215,166,83,.5)}.milestone{position:absolute;top:4px;width:7px;height:7px;border-radius:50%;background:#5d6b71;border:1px solid #a4b1b6;transform:translateX(-50%)}.milestone b{position:absolute;top:12px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:6px;font-weight:500;color:#627179}
+.scenarios{position:absolute;left:30px;right:380px;bottom:20px;z-index:22;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.scenario{height:74px;display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(5,9,11,.62);color:inherit;text-align:left;padding:8px 10px;cursor:pointer;backdrop-filter:blur(16px)}.scenario.active{background:rgba(15,24,28,.82);border-color:rgba(139,201,220,.35)}.letter{width:28px;height:28px;border:1px solid var(--line2);display:grid;place-items:center;font-size:9px;color:#7e8d93}.scenario.active .letter{border-color:#88b7c8;color:#d7edf5}.scenario>div{display:grid;gap:3px}.scenario strong{font-size:9px}.scenario small{font-size:7px;color:#6b7a81}.ret{text-align:right}.ret b{font-size:9px}.ret small{font-size:6px}
+.membrane{position:absolute;right:20px;bottom:20px;width:342px;z-index:26;background:rgba(5,9,11,.74);border:1px solid var(--line);backdrop-filter:blur(18px);padding:10px 12px}.membrane>span{font-size:7px;letter-spacing:.14em;color:#7b898f}.membraneLine{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin:8px 0 6px}.membraneLine i{height:3px;background:#3c474c}.membraneLine i:nth-child(1),.membraneLine i:nth-child(2){background:var(--teal)}.membraneLine i:nth-child(3){background:var(--gold)}.membraneLine i:nth-child(4){background:var(--red)}.membraneLabels{display:grid;grid-template-columns:repeat(5,1fr)}.membraneLabels span{font-size:6px;color:#59676d;text-align:center}
+.tooltip{position:absolute;z-index:60;display:none;min-width:170px;padding:9px 10px;background:rgba(4,8,10,.94);border:1px solid var(--line2);box-shadow:var(--shadow);pointer-events:none}.tooltip b{font-size:9px}.tooltip span{display:block;margin-top:3px;font-size:7px;color:#78868d}
+.footerNote{position:absolute;left:20px;bottom:20px;z-index:8;font-size:6px;letter-spacing:.11em;color:#46565d;pointer-events:none}
+@media(max-width:1000px){.project{display:none}.topbar{grid-template-columns:1fr auto}.inspector{width:310px}.timeline,.scenarios{right:350px}.metrics{right:350px}.membrane{width:310px}}
+@media(max-width:760px){body{overflow:auto}.app{height:auto;min-height:100vh;grid-template-columns:1fr;grid-template-rows:58px 900px}.topbar{grid-column:1;height:58px;padding:0 10px}.rail{display:none}.stage{grid-column:1;grid-row:2}.ribbon{left:10px;right:10px;top:10px;height:auto;grid-template-columns:1fr 1fr}.ribbon .main{grid-column:1/-1}.ribbon button{grid-column:1/-1;min-height:36px;border-top:1px solid var(--line);border-left:0}.layerDock{left:10px;top:174px;max-width:calc(100vw - 20px);overflow:auto}.viewMode{top:214px}.sceneLabel{left:14px;top:42%;width:210px}.metrics{display:none}.inspector{left:10px;right:10px;top:auto;bottom:165px;width:auto;height:380px}.timeline{left:10px;right:10px;bottom:87px}.scenarios{left:10px;right:10px;bottom:10px;display:flex;overflow:auto}.scenario{min-width:230px}.membrane{display:none}.footerNote{display:none}}
+</style>
+</head>
+<body><a href="./" style="position:fixed;left:82px;top:14px;z-index:9999;color:#8aa0a8;text-decoration:none;font:8px Inter,system-ui;letter-spacing:.12em">← OVERVIEW</a>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">DA</div><div class="brandText"><b>DEEP ANALYTICA</b><span>MINING INTELLIGENCE</span></div></div>
+  <div class="project"><span>PROJECT / 014</span><b>LOS ANDES</b><small>Cu-Au · CHILE</small></div>
+  <div class="topRight"><span class="live"><i></i> PRAXIOS LIVE</span><button id="focusBtn">Focus mode</button></div>
+</header>
+
+<nav class="rail">
+  <button class="active"><b>01</b><span>GEO</span></button>
+  <button><b>02</b><span>TIME</span></button>
+  <button><b>03</b><span>DECIDE</span></button>
+  <button><b>04</b><span>EVIDENCE</span></button>
+  <button><b>05</b><span>RISK</span></button>
+  <div class="spacer"></div>
+  <button class="trust"><b>68</b><span>TRUST</span></button>
+</nav>
+
+<main class="stage" id="stage">
+  <canvas id="scene"></canvas>
+  <div class="vignette"></div>
+
+  <section class="ribbon">
+    <div class="main"><span>DECISIÓN ACTIVA</span><strong>¿Expandimos operación o compramos información?</strong></div>
+    <div><span>CAPITAL EXPUESTO</span><strong id="capitalTop">US$ 150 M</strong></div>
+    <div><span>GATE</span><strong class="hold">HOLD</strong></div>
+    <div><span>CONFIANZA</span><strong>68%</strong></div>
+    <button data-open="system">Por qué está bloqueado →</button>
+  </section>
+
+  <div class="layerDock">
+    <button class="active" data-layer="mineral">Mineralización</button>
+    <button data-layer="terrain">Terreno</button>
+    <button data-layer="geology">Geología</button>
+    <button data-layer="water">Agua</button>
+  </div>
+
+  <div class="viewMode">
+    <button data-time="history">REALIDAD</button>
+    <button class="active" data-time="now">AHORA</button>
+    <button data-time="forecast">ESCENARIO</button>
+  </div>
+
+  <section class="sceneLabel">
+    <span>OBJECT / T-NORTH</span>
+    <strong>Target Norte</strong>
+    <div class="tags"><b>Hipótesis</b><b>Confianza moderada</b></div>
+    <p>Continuidad y profundidad aún no confirmadas. El sistema mantiene la interpretación separada del hecho observado.</p>
+  </section>
+
+  <section class="metrics">
+    <div><span>NPV ESCENARIO</span><strong id="npvMetric">US$ 320 M</strong></div>
+    <div><span>AGUA</span><strong id="waterMetric">Alta</strong></div>
+    <div><span>REVERSIBILIDAD</span><strong id="revMetric">Baja</strong></div>
+  </section>
+
+  <aside class="inspector" id="inspector">
+    <div class="tabs">
+      <button class="active" data-tab="decision">Decisión</button>
+      <button data-tab="evidence">Evidencia</button>
+      <button data-tab="system">Sistema</button>
+    </div>
+
+    <section class="panel active" id="decision">
+      <span class="eyebrow">DECISIÓN ABIERTA</span>
+      <h2 id="scenarioTitle">Expandir operación</h2>
+      <p class="lead" id="scenarioLead">Aumenta capacidad utilizando infraestructura existente. El retorno potencial depende de cerrar agua y geotecnia.</p>
+      <div class="metricLine">
+        <div><span>Capital</span><strong id="scenarioCapital">US$ 150 M</strong></div>
+        <div><span>Horizonte</span><strong id="scenarioHorizon">5 años</strong></div>
+        <div><span>Retorno</span><strong id="scenarioReturn">19% TIR</strong></div>
+      </div>
+      <div class="tradeoffs">
+        <div><span>Reversibilidad</span><b id="scenarioRev">Baja</b></div>
+        <div><span>Presión hídrica</span><b id="scenarioWater">Alta</b></div>
+        <div><span>Incertidumbre</span><b id="scenarioUnc">Media</b></div>
+      </div>
+      <div class="blocker"><span class="eyebrow">PRINCIPAL BLOQUEO</span><strong>Disponibilidad hídrica para expansión</strong><p>La decisión permanece en HOLD hasta cerrar evidencia material y revisión humana.</p></div>
+      <div class="actions"><button>Solicitar evidencia</button><button class="primary">Preparar revisión humana</button></div>
+    </section>
+
+    <section class="panel" id="evidence">
+      <span class="eyebrow">TRAZABILIDAD</span>
+      <h2>Qué sabemos. Qué no.</h2>
+      <p class="lead">Cada afirmación se puede recorrer hasta la fuente que la sostiene.</p>
+      <div class="evidence">
+        <button><i class="dot good"></i><div><strong>Serie de producción 2018–2026</strong><span>Operación · 2 meses</span></div><small>EV-01</small></button>
+        <button><i class="dot good"></i><div><strong>Imágenes Sentinel-2</strong><span>Copernicus · 12 días</span></div><small>EV-02</small></button>
+        <button><i class="dot warn"></i><div><strong>Modelo geológico 3D</strong><span>Consultor técnico · 6 meses</span></div><small>EV-03</small></button>
+        <button><i class="dot warn"></i><div><strong>Disponibilidad hídrica</strong><span>Fuentes públicas + operación</span></div><small>EV-04</small></button>
+        <button><i class="dot good"></i><div><strong>Precio cobre LME</strong><span>Mercado · 1 día</span></div><small>EV-05</small></button>
+        <button><i class="dot bad"></i><div><strong>Riesgo geotécnico</strong><span>Campaña histórica · cobertura insuficiente</span></div><small>EV-06</small></button>
+      </div>
+      <div class="trace"><span class="eyebrow">TRACE ACTIVO</span><div class="traceFlow"><b>Fuente</b><i>→</i><b>Evidencia</b><i>→</i><b>Claim</b><i>→</i><b>Decisión</b></div><p>Una inferencia no puede mutar silenciosamente a hecho.</p></div>
+    </section>
+
+    <section class="panel" id="system">
+      <span class="eyebrow">SISTEMA DE CONFIANZA</span>
+      <h2>No es un score. Es una membrana.</h2>
+      <p class="lead">Praxios ejecuta el flujo. Meta-Harness determina qué puede cruzarlo.</p>
+      <div class="systemStack">
+        <div class="systemLayer"><span>01</span><div><strong>Deep Geo</strong><p>Realidad espacial: terreno, infraestructura, cambio y riesgo.</p></div></div>
+        <div class="systemLayer"><span>02</span><div><strong>Praxios OS</strong><p>Contexto → evidencia → escenarios → decisión → seguimiento.</p></div></div>
+        <div class="systemLayer"><span>03</span><div><strong>Meta-Harness</strong><p>Bloquea afirmaciones o decisiones que exceden el soporte disponible.</p></div></div>
+        <div class="systemLayer"><span>04</span><div><strong>Rust Core</strong><p>Motor canónico de reglas, gates y auditoría reproducible.</p></div></div>
+      </div>
+      <div class="systemCard"><span class="eyebrow">REGLA OPERACIONAL</span><strong>S = max(0, 100 − 30B − 8W)</strong><p>B = bloqueos · W = advertencias. No representa una probabilidad de éxito.</p></div>
+      <div class="systemCard rust"><span class="eyebrow">HUMAN KEY</span><strong>impact = high ⇒ approval ≠ ∅</strong><p>Las decisiones de alto impacto requieren aprobación humana explícita.</p></div>
+    </section>
+  </aside>
+
+  <section class="timeline">
+    <div class="timelineTop"><span>2018—2025 · OBSERVADO</span><span>HOY</span><span>2027—2031 · PROYECCIÓN</span></div>
+    <div class="track"><i class="now"></i><i class="milestone" style="left:17%"><b>Campaña 01</b></i><i class="milestone" style="left:42%"><b>Modelo v3</b></i><i class="milestone" style="left:68%"><b>Gate G4</b></i><i class="milestone" style="left:86%"><b>Expansión</b></i></div>
+  </section>
+
+  <section class="scenarios">
+    <button class="scenario active" data-scenario="A"><span class="letter">A</span><div><strong>Expandir operación</strong><small>US$ 150 M · 5 años</small></div><div class="ret"><b>19% TIR</b><small>incertidumbre media</small></div></button>
+    <button class="scenario" data-scenario="B"><span class="letter">B</span><div><strong>Validar Target Norte</strong><small>US$ 25 M · 3 años</small></div><div class="ret"><b>28% escenario</b><small>incertidumbre alta</small></div></button>
+    <button class="scenario" data-scenario="C"><span class="letter">C</span><div><strong>Mantener liquidez</strong><small>US$ 0 · 12–24 meses</small></div><div class="ret"><b>—</b><small>incertidumbre baja</small></div></button>
+  </section>
+
+  <section class="membrane">
+    <span>META-HARNESS</span>
+    <div class="membraneLine"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="membraneLabels"><span>datos</span><span>modelo</span><span>claim</span><span>gate</span><span>humano</span></div>
+  </section>
+
+  <div class="tooltip" id="tip"><b></b><span></span></div>
+  <div class="footerNote">CONCEPT PREVIEW · NO REPRESENTA RESERVAS, RECURSOS NI RETORNOS DECLARADOS</div>
+</main>
+</div>
+
+<script>
+const stage=document.getElementById('stage');
+const canvas=document.getElementById('scene');
+const ctx=canvas.getContext('2d');
+const tip=document.getElementById('tip');
+let layer='mineral',timeMode='now',yaw=-0.28,pitch=0.48,zoom=1,drag=false,lastX=0,lastY=0;
+const scenarioData={
+ A:{title:'Expandir operación',lead:'Aumenta capacidad utilizando infraestructura existente. El retorno potencial depende de cerrar agua y geotecnia.',capital:'US$ 150 M',horizon:'5 años',ret:'19% TIR',rev:'Baja',water:'Alta',unc:'Media',npv:'US$ 320 M'},
+ B:{title:'Validar Target Norte',lead:'Compra información antes de comprometer CAPEX mayor. El valor mostrado es un escenario conceptual, no un recurso declarado.',capital:'US$ 25 M',horizon:'3 años',ret:'28% escenario',rev:'Alta',water:'Baja',unc:'Alta',npv:'US$ 220 M*'},
+ C:{title:'Mantener liquidez',lead:'Conserva opcionalidad hasta recibir nueva evidencia técnica, hídrica y de mercado.',capital:'US$ 0',horizon:'12–24 meses',ret:'—',rev:'Máxima',water:'N/A',unc:'Baja',npv:'—'}
+};
+function resize(){const dpr=Math.min(devicePixelRatio||1,2);const r=canvas.getBoundingClientRect();canvas.width=Math.floor(r.width*dpr);canvas.height=Math.floor(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+function project(x,y,z,w,h){
+  const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+  let rx=x*cy-z*sy,rz=x*sy+z*cy;
+  let ry=y*cp-rz*sp;rz=y*sp+rz*cp;
+  const perspective=520/(520+rz*150);
+  return [w*.49+rx*280*zoom*perspective,h*.52-ry*280*zoom*perspective,perspective,rz];
+}
+function height(x,z){
+  const ridge=.17*Math.sin(x*4.3)+.12*Math.cos(z*5.7)+.055*Math.sin((x+z)*9.5);
+  const pit=-.28*Math.exp(-((x-.12)**2+(z+.04)**2)*7.5);
+  const shoulder=.08*Math.exp(-((x+.48)**2+(z-.22)**2)*5);
+  return ridge+pit+shoulder;
+}
+function colorFor(x,z,y,alpha=.92){
+  const ore=Math.exp(-((x+.18)**2+(z-.03)**2)*8)+.8*Math.exp(-((x-.34)**2+(z+.2)**2)*13);
+  const water=Math.exp(-((x-.1)**2+(z-.28)**2)*9)+.4*Math.exp(-((x+.5)**2+(z+.15)**2)*20);
+  const bands=.5+.5*Math.sin(x*10+z*6+y*10);
+  if(layer==='water') return `rgba(${30+water*20},${95+water*95},${130+water*90},${alpha})`;
+  if(layer==='geology') return `rgba(${88+bands*85},${72+bands*48},${58+bands*25},${alpha})`;
+  if(layer==='terrain') return `rgba(${52+y*70},${64+y*62},${58+y*45},${alpha})`;
+  return `rgba(${65+ore*150},${72+ore*55},${65+ore*20},${alpha})`;
+}
+function draw(){
+  const w=canvas.clientWidth,h=canvas.clientHeight;
+  ctx.clearRect(0,0,w,h);
+  const bg=ctx.createLinearGradient(0,0,0,h);bg.addColorStop(0,'#101b21');bg.addColorStop(.55,'#071015');bg.addColorStop(1,'#05090b');ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+
+  const N=34,verts=[];
+  for(let j=0;j<N;j++){verts[j]=[];for(let i=0;i<N;i++){const x=(i/(N-1)-.5)*2.25,z=(j/(N-1)-.5)*1.75,y=height(x,z);verts[j][i]={x,y,z,p:project(x,y,z,w,h)}}}
+  for(let j=N-2;j>=0;j--){for(let i=0;i<N-1;i++){
+    const a=verts[j][i],b=verts[j][i+1],c=verts[j+1][i+1],d=verts[j+1][i];
+    const avg=(a.y+b.y+c.y+d.y)/4;
+    ctx.beginPath();ctx.moveTo(...a.p);ctx.lineTo(...b.p);ctx.lineTo(...c.p);ctx.lineTo(...d.p);ctx.closePath();
+    ctx.fillStyle=colorFor((a.x+c.x)/2,(a.z+c.z)/2,avg,.82);ctx.fill();
+    ctx.strokeStyle='rgba(190,210,218,.035)';ctx.lineWidth=.7;ctx.stroke();
+  }}
+  ctx.globalCompositeOperation='screen';
+  // contours
+  for(let k=0;k<7;k++){ctx.beginPath();for(let i=0;i<90;i++){const x=(i/89-.5)*2.1,z=-.62+k*.18+.05*Math.sin(i*.25+k),y=height(x,z)+.015;const p=project(x,y,z,w,h);if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);}ctx.strokeStyle='rgba(160,205,220,.12)';ctx.lineWidth=1;ctx.setLineDash([5,7]);ctx.stroke();}
+  ctx.setLineDash([]);
+  // expansion footprint
+  const poly=[[-.02,.28],[.55,.22],[.79,-.08],[.36,-.43],[-.18,-.25]];
+  ctx.beginPath();poly.forEach((v,i)=>{const p=project(v[0],height(v[0],v[1])+.035,v[1],w,h);i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])});ctx.closePath();ctx.fillStyle='rgba(100,185,215,.035)';ctx.fill();ctx.strokeStyle='rgba(110,190,220,.36)';ctx.setLineDash([7,5]);ctx.stroke();ctx.setLineDash([]);
+  // uncertainty target
+  const center=project(-.42,height(-.42,.08)+.06,.08,w,h);const rad=80*zoom;
+  const gr=ctx.createRadialGradient(center[0],center[1],4,center[0],center[1],rad);gr.addColorStop(0,'rgba(215,166,83,.18)');gr.addColorStop(1,'rgba(215,166,83,0)');ctx.fillStyle=gr;ctx.beginPath();ctx.ellipse(center[0],center[1],rad,rad*.45,.15,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(215,166,83,.38)';ctx.setLineDash([4,5]);ctx.stroke();ctx.setLineDash([]);
+  // drillholes
+  [[-.35,.04,.14],[-.25,-.03,.17],[-.14,-.09,.18],[.38,-.1,.2],[.48,-.14,.22]].forEach((d,idx)=>{
+    const topY=height(d[0],d[1])+.05,p1=project(d[0],topY,d[1],w,h),p2=project(d[0]+.06*(idx%2?1:-1),topY-.72,d[1]-.06,w,h);
+    ctx.beginPath();ctx.moveTo(p1[0],p1[1]);ctx.lineTo(p2[0],p2[1]);ctx.strokeStyle=idx%2?'rgba(215,166,83,.72)':'rgba(225,235,239,.50)';ctx.lineWidth=1.1;ctx.stroke();
+    ctx.fillStyle='rgba(235,242,244,.75)';ctx.beginPath();ctx.arc(p1[0],p1[1],2,0,Math.PI*2);ctx.fill();
+  });
+  // labels
+  ctx.font='7px ui-monospace, monospace';ctx.fillStyle='rgba(208,222,227,.58)';
+  let p=project(-.42,height(-.42,.08)+.12,.08,w,h);ctx.fillText('T-NORTH · HYPOTHESIS',p[0]-54,p[1]-40);
+  p=project(.48,height(.48,-.12)+.10,-.12,w,h);ctx.fillText('F4 · EXPANSION FOOTPRINT',p[0]-38,p[1]-46);
+  ctx.globalCompositeOperation='source-over';
+  if(timeMode==='forecast'){ctx.fillStyle='rgba(215,166,83,.035)';ctx.fillRect(0,0,w,h)}
+  if(timeMode==='history'){ctx.fillStyle='rgba(180,205,215,.028)';ctx.fillRect(0,0,w,h)}
+}
+stage.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;lastY=e.clientY;stage.classList.add('dragging');stage.setPointerCapture?.(e.pointerId)});
+stage.addEventListener('pointermove',e=>{if(!drag)return;yaw+=(e.clientX-lastX)*.006;pitch=Math.max(.18,Math.min(1.15,pitch+(e.clientY-lastY)*.004));lastX=e.clientX;lastY=e.clientY;draw()});
+stage.addEventListener('pointerup',()=>{drag=false;stage.classList.remove('dragging')});
+stage.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.65,Math.min(1.7,zoom-e.deltaY*.0007));draw()},{passive:false});
+document.querySelectorAll('[data-layer]').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('[data-layer]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');layer=btn.dataset.layer;draw()});
+document.querySelectorAll('[data-time]').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('[data-time]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');timeMode=btn.dataset.time;draw()});
+document.querySelectorAll('[data-tab]').forEach(btn=>btn.onclick=()=>openTab(btn.dataset.tab));
+document.querySelectorAll('[data-open]').forEach(btn=>btn.onclick=()=>openTab(btn.dataset.open));
+function openTab(name){document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===name));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById(name).classList.add('active')}
+document.querySelectorAll('[data-scenario]').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('[data-scenario]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const d=scenarioData[btn.dataset.scenario];scenarioTitle.textContent=d.title;scenarioLead.textContent=d.lead;scenarioCapital.textContent=d.capital;scenarioHorizon.textContent=d.horizon;scenarioReturn.textContent=d.ret;scenarioRev.textContent=d.rev;scenarioWater.textContent=d.water;scenarioUnc.textContent=d.unc;capitalTop.textContent=d.capital;npvMetric.textContent=d.npv;waterMetric.textContent=d.water;revMetric.textContent=d.rev;openTab('decision')});
+document.getElementById('focusBtn').onclick=()=>{document.body.classList.toggle('focus');const hidden=document.body.classList.contains('focus');document.getElementById('inspector').style.display=hidden?'none':'grid';document.querySelector('.membrane').style.display=hidden?'none':'block';document.querySelector('.timeline').style.right=hidden?'30px':'380px';document.querySelector('.scenarios').style.right=hidden?'30px':'380px';document.querySelector('.metrics').style.right=hidden?'20px':'380px';focusBtn.textContent=hidden?'Exit focus':'Focus mode';resize()};
+window.addEventListener('resize',resize);resize();
+</script>
+</body>
+</html>
